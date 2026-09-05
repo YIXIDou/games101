@@ -1,0 +1,79 @@
+# CMake build trees and generated metadata
+**/build/
+**/build-*/
+**/cmake-build-*/
+**/CMakeFiles/
+**/CMakeCache.txt
+**/cmake_install.cmake
+**/compile_commands.json
+**/build.ninja
+**/.ninja_deps
+**/.ninja_log
+**/Makefile
+
+# Compiled binaries and libraries
+*.exe
+*.dll
+*.lib
+*.a
+*.so
+*.dylib
+*.o
+*.pdb
+*.ilk
+*.exp
+
+# Debugging, profiling, and crash output
+*.dSYM/
+*.gcda
+*.gcno
+*.profraw
+*.profdata
+core
+core.*
+
+# Course downloads and large local assets
+*.zip
+*.rar
+*.7z
+*.tar
+*.tar.gz
+*.pdf
+*.vdi
+*.vhd
+*.vhdx
+*.ova
+*.ovf
+*.iso
+*.dmg
+__MACOSX/
+
+# IDE and editor state
+.vs/
+.idea/
+*.code-workspace
+**/.vscode/*
+!**/.vscode/settings.json
+!**/.vscode/extensions.json
+!**/.vscode/tasks.json
+!**/.vscode/launch.json
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*~
+
+# Local secrets and environment overrides
+.env
+.env.*
+!.env.example

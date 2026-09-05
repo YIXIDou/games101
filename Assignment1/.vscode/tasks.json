@@ -1,0 +1,26 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "CMake: build Rasterizer",
+            "type": "shell",
+            "command": "C:/msys64/ucrt64/bin/cmake.exe",
+            "args": [
+                "--build",
+                "${workspaceFolder}/code/build-ucrt"
+            ],
+            "options": {
+                "env": {
+                    "PATH": "C:/msys64/ucrt64/bin;${env:PATH}"
+                }
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
