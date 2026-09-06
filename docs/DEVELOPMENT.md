@@ -46,6 +46,33 @@ which gdb
 
 它们应指向 `/ucrt64/bin/`。
 
+## PA0
+
+PA0 只需要 C++ 编译器、CMake、Ninja 和 Eigen。若尚未安装，可在 MSYS2
+UCRT64 终端执行：
+
+```bash
+pacman -S --needed \
+  mingw-w64-ucrt-x86_64-toolchain \
+  mingw-w64-ucrt-x86_64-cmake \
+  mingw-w64-ucrt-x86_64-ninja \
+  mingw-w64-ucrt-x86_64-eigen3
+```
+
+命令行验证 PA0：
+
+```bash
+cd /d/Project/Games101/GAMES101_Homework/pa0
+cmake -S . -B build-ucrt -G Ninja \
+  -DCMAKE_BUILD_TYPE=Debug \
+  -DCMAKE_PREFIX_PATH=C:/msys64/ucrt64
+cmake --build build-ucrt
+./build-ucrt/Transformation.exe
+```
+
+PA0 的 CMake 配置通过 `Eigen3::Eigen` 引入 Eigen，不需要把 Eigen 的绝对
+头文件路径写进源代码或 VS Code 配置。
+
 ## VS Code
 
 建议安装：
@@ -53,14 +80,36 @@ which gdb
 - C/C++ (`ms-vscode.cpptools`)
 - CMake Tools (`ms-vscode.cmake-tools`)
 
-作业目录中的 `.vscode/settings.json` 负责选择 UCRT64 工具链。使用命令面板依次执行：
+请直接用 VS Code 打开整个 `GAMES101_Homework` 文件夹。仓库根目录的
+`.vscode/settings.json` 统一选择 UCRT64 工具链，并将每份作业作为独立的
+CMake 工程管理；不需要在每个作业目录中复制 `.vscode`。
 
-1. `CMake: Delete Cache and Reconfigure`
-2. `CMake: Build`
-3. `CMake: Set Debug Target`
-4. `CMake: Debug`
+当前工作区包含 PA0 与 Assignment 1。打开命令面板后：
+
+1. 执行 `CMake: Select Project`，选择正在学习的作业。
+2. 首次构建或更换工具链后执行 `CMake: Delete Cache and Reconfigure`。
+3. 执行 `CMake: Build`。
+4. 需要调试时先执行 `CMake: Set Debug Target`，再执行 `CMake: Debug`。
+
+以后加入新作业，只需在根目录 `.vscode/settings.json` 的
+`cmake.sourceDirectory` 数组中增加其 `CMakeLists.txt` 所在目录。例如：
+
+```json
+"cmake.sourceDirectory": [
+    "${workspaceFolder}/pa0",
+    "${workspaceFolder}/Assignment1/code",
+    "${workspaceFolder}/Assignment2"
+]
+```
+
+这里应填写真正包含 `CMakeLists.txt` 的目录；有些作业的工程根目录可能是
+`AssignmentN/code`。`${sourceDirectory}/build-ucrt` 会保证各作业使用互不干扰的
+构建目录。
 
 不要选择 `C/C++: g++.exe 生成和调试活动文件`，因为该命令只编译当前源文件，不会自动加入其他 `.cpp`、OpenCV 头文件和链接库。
+
+不建议把所有作业合成一个顶层 CMake 工程。课程各作业的目标、依赖和框架版本
+可能不同，保持独立可以减少目标重名、配置串扰和跨平台兼容问题。
 
 ## 命令行构建
 
@@ -87,4 +136,3 @@ cmake --build build-ucrt
 - 不同 OpenCV 和浮点实现可能产生轻微图像或数值差异。
 - OpenGL/窗口系统相关作业在 Windows 下可能需要额外适配。
 - 最终验证应从新的构建目录开始，避免复用其他工具链生成的缓存。
-

@@ -55,6 +55,10 @@ cmake --build build-ucrt
 
 请使用生成在 `build-ucrt/` 内的目标程序，不要使用 VS Code 的“生成活动文件”单独编译 `main.cpp`。
 
+使用 VS Code 时，建议将整个 `GAMES101_Homework` 作为工作区打开，再通过
+`CMake: Select Project` 切换 PA0、Assignment 1 等独立工程。UCRT64 的公共设置
+保存在仓库根目录的 `.vscode/settings.json`，无需为每份作业重复配置。
+
 ## 仓库原则
 
 - 先理解算法，再实现和记录。
@@ -66,4 +70,3 @@ cmake --build build-ucrt
 ## 版权与说明
 
 课程名称、题目描述和原始代码框架的权利归其原作者及课程团队所有。本仓库不是课程官方网站，也不代表课程团队。更多说明见 [NOTICE](NOTICE.md)。
-

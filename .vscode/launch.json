@@ -1,0 +1,73 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "当前 CMake 目标：无参数",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.launchTargetPath}",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${command:cmake.launchTargetDirectory}",
+            "environment": [
+                {
+                    "name": "PATH",
+                    "value": "C:/msys64/ucrt64/bin;${env:PATH}"
+                }
+            ],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/msys64/ucrt64/bin/gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "启用 GDB pretty-printing",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "Assignment1：指定角度和输出文件",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.launchTargetPath}",
+            "args": [
+                "-r",
+                "${input:rotationAngle}",
+                "${input:outputFile}"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/Assignment1/code",
+            "environment": [
+                {
+                    "name": "PATH",
+                    "value": "C:/msys64/ucrt64/bin;${env:PATH}"
+                }
+            ],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/msys64/ucrt64/bin/gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "启用 GDB pretty-printing",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        }
+    ],
+    "inputs": [
+        {
+            "id": "rotationAngle",
+            "type": "promptString",
+            "description": "请输入旋转角度",
+            "default": "20"
+        },
+        {
+            "id": "outputFile",
+            "type": "promptString",
+            "description": "请输入输出文件名",
+            "default": "image.png"
+        }
+    ]
+}
