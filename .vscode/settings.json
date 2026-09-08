@@ -10,7 +10,8 @@
     "cmake.configureOnOpen": false,
     "cmake.sourceDirectory": [
         "${workspaceFolder}/pa0",
-        "${workspaceFolder}/Assignment1/code"
+        "${workspaceFolder}/Assignment1/code",
+        "${workspaceFolder}/Assignment2/Assignment2_code"
     ],
 
     "cmake.configureSettings": {
@@ -38,5 +39,16 @@
         ],
         "MIMode": "gdb",
         "miDebuggerPath": "C:/msys64/ucrt64/bin/gdb.exe"
-    }
+    },
+    "files.associations": {
+    "*.cpp": "cpp",
+    "*.hpp": "cpp"
+    },
+    "[cpp]": {
+        "editor.defaultFormatter": "ms-vscode.cpptools",
+        "editor.formatOnType": true,
+        "editor.formatOnSave": true
+    },
+    "editor.autoIndent": "full",
+    "C_Cpp.formatting": "clangFormat"
 }

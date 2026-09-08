@@ -54,6 +54,33 @@
                     "ignoreFailures": true
                 }
             ]
+        },
+        {
+            "name": "Assignment2：保存结果图片",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${command:cmake.launchTargetPath}",
+            "args": [
+                "${input:assignment2OutputFile}"
+            ],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/Assignment2/Assignment2_code",
+            "environment": [
+                {
+                    "name": "PATH",
+                    "value": "C:/msys64/ucrt64/bin;${env:PATH}"
+                }
+            ],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/msys64/ucrt64/bin/gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "启用 GDB pretty-printing",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
         }
     ],
     "inputs": [
@@ -68,6 +95,12 @@
             "type": "promptString",
             "description": "请输入输出文件名",
             "default": "image.png"
+        },
+        {
+            "id": "assignment2OutputFile",
+            "type": "promptString",
+            "description": "请输入 Assignment 2 输出文件名",
+            "default": "output.png"
         }
     ]
 }

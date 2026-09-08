@@ -7,6 +7,13 @@
 
 constexpr double MY_PI = 3.1415926;
 
+Eigen::Matrix4f to_mat4(const Eigen::Matrix3f &m3)
+{
+    Eigen::Matrix4f m4 = Eigen::Matrix4f::Identity();
+    m4.block<3, 3>(0, 0) = m3;
+    return m4;
+}
+
 Eigen::Matrix4f get_view_matrix(Eigen::Vector3f eye_pos)
 {
     Eigen::Matrix4f view = Eigen::Matrix4f::Identity();
@@ -35,6 +42,30 @@ Eigen::Matrix4f get_model_matrix(float rotation_angle)
     model(1, 1) = std::cosf(angle_rad);
 
     return model;
+}
+
+// 提升部分 要求:根据过原点的任意轴进行旋转
+Eigen::Matrix4f get_rotation(Vector3f axis = Eigen::Vector3f(0.0f, 0.0f, 1.0f), float angle)
+{
+    float angle_rad = angle * MY_PI / 180.0f;
+    Eigen::Vector3f n = axis.normalized();
+    float nx = n.x();
+    float ny = n.y();
+    float nz = n.z();
+
+    // 1. 构造反对称矩阵 K
+    Eigen::Matrix3f K;
+    K << 0.0f, -nz, ny,
+        nz, 0.0f, -nx,
+        -ny, nx, 0.0f;
+
+    // 2. 利用矩阵公式计算 R = I + sin(theta)*K + (1 - cos(theta))*K^2
+    Eigen::Matrix3f I = Eigen::Matrix3f::Identity();
+    float cos_angle = std::cos(angle_rad);
+    float sin_angle = std::sin(angle_rad);
+
+    Eigen::Matrix3f R = I + sin_angle * K + (1.0f - cos_angle) * (K * K);
+    return to_mat4(R);
 }
 
 // TODO: Implement this function

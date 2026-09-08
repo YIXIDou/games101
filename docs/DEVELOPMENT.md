@@ -84,7 +84,7 @@ PA0 的 CMake 配置通过 `Eigen3::Eigen` 引入 Eigen，不需要把 Eigen 的
 `.vscode/settings.json` 统一选择 UCRT64 工具链，并将每份作业作为独立的
 CMake 工程管理；不需要在每个作业目录中复制 `.vscode`。
 
-当前工作区包含 PA0 与 Assignment 1。打开命令面板后：
+当前工作区包含 PA0、Assignment 1 与 Assignment 2。打开命令面板后：
 
 1. 执行 `CMake: Select Project`，选择正在学习的作业。
 2. 首次构建或更换工具链后执行 `CMake: Delete Cache and Reconfigure`。
@@ -98,7 +98,7 @@ CMake 工程管理；不需要在每个作业目录中复制 `.vscode`。
 "cmake.sourceDirectory": [
     "${workspaceFolder}/pa0",
     "${workspaceFolder}/Assignment1/code",
-    "${workspaceFolder}/Assignment2"
+    "${workspaceFolder}/Assignment2/Assignment2_code"
 ]
 ```
 
@@ -110,6 +110,16 @@ CMake 工程管理；不需要在每个作业目录中复制 `.vscode`。
 
 不建议把所有作业合成一个顶层 CMake 工程。课程各作业的目标、依赖和框架版本
 可能不同，保持独立可以减少目标重名、配置串扰和跨平台兼容问题。
+
+Assignment 2 还提供了 `ucrt-debug` CMake preset。在它的代码目录中可以直接运行：
+
+```bash
+cmake --preset ucrt-debug
+cmake --build --preset ucrt-debug
+```
+
+该 preset 会把 UCRT64 的动态库目录放在构建进程的 `PATH` 最前面，避免误用
+`C:/mingw64` 中的编译器或库。
 
 ## 命令行构建
 
