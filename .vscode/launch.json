@@ -2,6 +2,32 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Assignment3：环境检查（算法未完成时使用）",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/Assignment3/Assignment3_code/build-ucrt/Rasterizer.exe",
+            "args": ["--check-environment"],
+            "cwd": "${workspaceFolder}/Assignment3/Assignment3_code/build-ucrt",
+            "preLaunchTask": "Assignment3: Build",
+            "environment": [{"name": "PATH", "value": "C:/msys64/ucrt64/bin;${env:PATH}"}],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/msys64/ucrt64/bin/gdb.exe"
+        },
+        {
+            "name": "Assignment3：选择着色器并保存图片",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/Assignment3/Assignment3_code/build-ucrt/Rasterizer.exe",
+            "args": ["${input:assignment3OutputFile}", "${input:assignment3Shader}"],
+            "cwd": "${workspaceFolder}/Assignment3/Assignment3_code/build-ucrt",
+            "preLaunchTask": "Assignment3: Build",
+            "environment": [{"name": "PATH", "value": "C:/msys64/ucrt64/bin;${env:PATH}"}],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/msys64/ucrt64/bin/gdb.exe"
+        },
+        {
             "name": "当前 CMake 目标：无参数",
             "type": "cppdbg",
             "request": "launch",
@@ -84,6 +110,19 @@
         }
     ],
     "inputs": [
+        {
+            "id": "assignment3Shader",
+            "type": "pickString",
+            "description": "选择 Assignment3 着色器（需先实现相应算法）",
+            "options": ["normal", "phong", "texture", "bump", "displacement"],
+            "default": "normal"
+        },
+        {
+            "id": "assignment3OutputFile",
+            "type": "promptString",
+            "description": "图片文件名（默认保存在 build-ucrt）",
+            "default": "output.png"
+        },
         {
             "id": "rotationAngle",
             "type": "promptString",
