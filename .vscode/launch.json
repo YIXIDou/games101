@@ -2,6 +2,19 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Assignment4：交互绘制 Bezier 曲线",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/Assignment4/Assignment4_code/build-ucrt/BezierCurve.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}/Assignment4/Assignment4_code/build-ucrt",
+            "preLaunchTask": "Assignment4: Build",
+            "environment": [{"name": "PATH", "value": "C:/msys64/ucrt64/bin;${env:PATH}"}],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/msys64/ucrt64/bin/gdb.exe"
+        },
+        {
             "name": "Assignment3：环境检查（算法未完成时使用）",
             "type": "cppdbg",
             "request": "launch",

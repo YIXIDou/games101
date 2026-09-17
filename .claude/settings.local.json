@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(claude mcp *)",
+      "Bash(curl -s -i --max-time 5 -X POST http://127.0.0.1:8000/mcp -H \"Content-Type: application/json\" -H \"Accept: application/json, text/event-stream\" -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2024-11-05\",\"capabilities\":{},\"clientInfo\":{\"name\":\"probe\",\"version\":\"1.0\"}}}')",
+      "Bash(echo \"---exit:$?---\")",
+      "Bash(netstat -ano)",
+      "Bash(cd /tmp)",
+      "Bash(curl -s -D - -o /dev/null --max-time 5 -X POST http://127.0.0.1:8000/mcp -H \"Content-Type: application/json\" -H \"Accept: application/json, text/event-stream\" -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"initialize\",\"params\":{\"protocolVersion\":\"2024-11-05\",\"capabilities\":{},\"clientInfo\":{\"name\":\"cc\",\"version\":\"1.0\"}}}')",
+      "Read(//tmp/**)",
+      "Bash(curl -s --max-time 20 -X POST http://127.0.0.1:8000/mcp -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' -H 'Mcp-Session-Id: __TRACKED_VAR__' -d '{\"jsonrpc\":\"2.0\",\"id\":3,\"method\":\"tools/call\",\"params\":{\"name\":\"describe_toolset\",\"arguments\":{\"toolset_name\":\"__TRACKED_VAR__\"}}}')",
+      "Bash(curl -s --max-time 20 -X POST http://127.0.0.1:8000/mcp -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' -H 'Mcp-Session-Id: __TRACKED_VAR__' -d '{\"jsonrpc\":\"2.0\",\"id\":4,\"method\":\"tools/call\",\"params\":{\"name\":\"call_tool\",\"arguments\":{\"toolset_name\":\"EditorToolset.EditorAppToolset\",\"tool_name\":\"GetSelectedActors\",\"arguments\":{}}}}')",
+      "Bash(curl -s --max-time 20 -X POST http://127.0.0.1:8000/mcp -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' -H 'Mcp-Session-Id: __TRACKED_VAR__' -d '{\"jsonrpc\":\"2.0\",\"id\":5,\"method\":\"tools/call\",\"params\":{\"name\":\"call_tool\",\"arguments\":{\"toolset_name\":\"editor_toolset.toolsets.actor.ActorTools\",\"tool_name\":\"__TRACKED_VAR__\",\"arguments\":{\"actor\":{\"refPath\":\"__TRACKED_VAR__\"}}}}}')"
+    ]
+  }
+}
