@@ -13,7 +13,8 @@
         "${workspaceFolder}/Assignment1/code",
         "${workspaceFolder}/Assignment2/Assignment2_code",
         "${workspaceFolder}/Assignment3/Assignment3_code",
-        "${workspaceFolder}/Assignment4/Assignment4_code"
+        "${workspaceFolder}/Assignment4/Assignment4_code",
+        "${workspaceFolder}/Assignment5/Assignment5_code"
     ],
 
     "cmake.configureSettings": {
