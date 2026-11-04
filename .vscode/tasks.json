@@ -2,6 +2,30 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "Assignment6: Configure",
+            "type": "process",
+            "command": "C:/msys64/ucrt64/bin/cmake.exe",
+            "args": ["--preset", "ucrt-debug", "--fresh"],
+            "options": {
+                "cwd": "${workspaceFolder}/Assignment6/Assignment6_code",
+                "env": {"PATH": "C:/msys64/ucrt64/bin;${env:PATH}"}
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Assignment6: Build",
+            "type": "process",
+            "command": "C:/msys64/ucrt64/bin/cmake.exe",
+            "args": ["--build", "--preset", "ucrt-debug"],
+            "options": {
+                "cwd": "${workspaceFolder}/Assignment6/Assignment6_code",
+                "env": {"PATH": "C:/msys64/ucrt64/bin;${env:PATH}"}
+            },
+            "dependsOn": "Assignment6: Configure",
+            "problemMatcher": ["$gcc"],
+            "group": "build"
+        },
+        {
             "label": "Assignment5: Configure",
             "type": "process",
             "command": "C:/msys64/ucrt64/bin/cmake.exe",
