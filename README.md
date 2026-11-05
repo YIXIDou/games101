@@ -35,6 +35,13 @@ GAMES101_Homework/
 
 目录会随着学习进度逐步补齐。
 
+## Assignment7 提交入口
+
+基础路径追踪、三个求交函数迁移及阴影条纹修复已实现；结果与运行方法见
+[Assignment7 提交说明](Assignment7/Assignment7_code/README.md)，
+学习文档和打包入口见 [Assignment7 导航](Assignment7/README.md)。
+主图为 784×784、16 SPP，作者记录渲染 59 秒；课程虚拟机兼容性仍待验证。
+
 ## 构建方式
 
 每个作业都是独立的 CMake 工程。进入包含 `CMakeLists.txt` 的目录后执行：

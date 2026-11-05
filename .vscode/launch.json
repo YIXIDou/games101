@@ -2,6 +2,45 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Assignment7：环境检查（现在可运行）",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/Assignment7/Assignment7_code/build-ucrt/RayTracing.exe",
+            "args": ["--check-environment"],
+            "cwd": "${workspaceFolder}/Assignment7/Assignment7_code/build-ucrt",
+            "preLaunchTask": "Assignment7: Build Debug",
+            "environment": [{"name": "PATH", "value": "C:/msys64/ucrt64/bin;${env:PATH}"}],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/msys64/ucrt64/bin/gdb.exe"
+        },
+        {
+            "name": "Assignment7：Debug 渲染（完成四处 TODO 后）",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/Assignment7/Assignment7_code/build-ucrt/RayTracing.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}/Assignment7/Assignment7_code/build-ucrt",
+            "preLaunchTask": "Assignment7: Build Debug",
+            "environment": [{"name": "PATH", "value": "C:/msys64/ucrt64/bin;${env:PATH}"}],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/msys64/ucrt64/bin/gdb.exe"
+        },
+        {
+            "name": "Assignment7：Release 渲染（完成四处 TODO 后）",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/Assignment7/Assignment7_code/build-ucrt-release/RayTracing.exe",
+            "args": [],
+            "cwd": "${workspaceFolder}/Assignment7/Assignment7_code/build-ucrt-release",
+            "preLaunchTask": "Assignment7: Build Release",
+            "environment": [{"name": "PATH", "value": "C:/msys64/ucrt64/bin;${env:PATH}"}],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/msys64/ucrt64/bin/gdb.exe"
+        },
+        {
             "name": "Assignment6：渲染 binary.ppm（完成 TODO 后）",
             "type": "cppdbg",
             "request": "launch",

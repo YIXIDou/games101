@@ -1,0 +1,53 @@
+{
+    "version": 3,
+    "cmakeMinimumRequired": {"major": 3, "minor": 21, "patch": 0},
+    "configurePresets": [
+        {
+            "name": "ucrt-base",
+            "hidden": true,
+            "generator": "Ninja",
+            "condition": {"type": "equals", "lhs": "${hostSystemName}", "rhs": "Windows"},
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "C:/msys64/ucrt64/bin/gcc.exe",
+                "CMAKE_CXX_COMPILER": "C:/msys64/ucrt64/bin/g++.exe",
+                "CMAKE_MAKE_PROGRAM": "C:/msys64/ucrt64/bin/ninja.exe",
+                "CMAKE_PREFIX_PATH": "C:/msys64/ucrt64",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "BUILD_TESTING": "ON"
+            },
+            "environment": {"PATH": "C:/msys64/ucrt64/bin;$penv{PATH}"}
+        },
+        {
+            "name": "ucrt-debug",
+            "inherits": "ucrt-base",
+            "displayName": "Assignment7 - UCRT64 Debug",
+            "binaryDir": "${sourceDir}/build-ucrt",
+            "cacheVariables": {"CMAKE_BUILD_TYPE": "Debug"}
+        },
+        {
+            "name": "ucrt-release",
+            "inherits": "ucrt-base",
+            "displayName": "Assignment7 - UCRT64 Release",
+            "binaryDir": "${sourceDir}/build-ucrt-release",
+            "cacheVariables": {"CMAKE_BUILD_TYPE": "Release"}
+        }
+    ],
+    "buildPresets": [
+        {"name": "ucrt-debug", "configurePreset": "ucrt-debug"},
+        {"name": "ucrt-release", "configurePreset": "ucrt-release"}
+    ],
+    "testPresets": [
+        {
+            "name": "ucrt-debug",
+            "configurePreset": "ucrt-debug",
+            "output": {"outputOnFailure": true},
+            "execution": {"noTestsAction": "error"}
+        },
+        {
+            "name": "ucrt-release",
+            "configurePreset": "ucrt-release",
+            "output": {"outputOnFailure": true},
+            "execution": {"noTestsAction": "error"}
+        }
+    ]
+}

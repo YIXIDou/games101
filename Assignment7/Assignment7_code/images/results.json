@@ -1,0 +1,32 @@
+{
+  "scene": "Cornell Box",
+  "cpu": "Intel Core i5-14600K",
+  "renderer_default_spp": 128,
+  "russian_roulette": 0.8,
+  "results": [
+    {
+      "ppm": "cornell_box_784x784_16spp.ppm",
+      "png": "cornell_box_784x784_16spp.png",
+      "width": 784,
+      "height": 784,
+      "spp": 16,
+      "spp_evidence": "user-confirmed",
+      "render_seconds": 59,
+      "timing_evidence": "user-reported",
+      "original_file": "16次采样.ppm",
+      "sha256_ppm": "c7e10affa23152b5c69c9b8564ff778e78de82d382d93f5397bcbd482a7d63e5"
+    },
+    {
+      "ppm": "cornell_box_784x784_32spp.ppm",
+      "png": "cornell_box_784x784_32spp.png",
+      "width": 784,
+      "height": 784,
+      "spp": 32,
+      "spp_evidence": "original filename label",
+      "render_seconds": null,
+      "timing_evidence": "not recorded",
+      "original_file": "32次采样.ppm",
+      "sha256_ppm": "5a2f6588e42baa1ad8380a519d03e8d91fdb5944e659f5cd298310ef8eec6a1a"
+    }
+  ]
+}

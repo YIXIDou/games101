@@ -2,6 +2,78 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "Assignment7: Configure Debug",
+            "type": "process",
+            "command": "C:/msys64/ucrt64/bin/cmake.exe",
+            "args": ["--preset", "ucrt-debug"],
+            "options": {
+                "cwd": "${workspaceFolder}/Assignment7/Assignment7_code",
+                "env": {"PATH": "C:/msys64/ucrt64/bin;${env:PATH}"}
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Assignment7: Build Debug",
+            "type": "process",
+            "command": "C:/msys64/ucrt64/bin/cmake.exe",
+            "args": ["--build", "--preset", "ucrt-debug"],
+            "options": {
+                "cwd": "${workspaceFolder}/Assignment7/Assignment7_code",
+                "env": {"PATH": "C:/msys64/ucrt64/bin;${env:PATH}"}
+            },
+            "dependsOn": "Assignment7: Configure Debug",
+            "problemMatcher": ["$gcc"],
+            "group": {"kind": "build", "isDefault": true}
+        },
+        {
+            "label": "Assignment7: Check environment Debug",
+            "type": "process",
+            "command": "C:/msys64/ucrt64/bin/ctest.exe",
+            "args": ["--preset", "ucrt-debug"],
+            "options": {
+                "cwd": "${workspaceFolder}/Assignment7/Assignment7_code",
+                "env": {"PATH": "C:/msys64/ucrt64/bin;${env:PATH}"}
+            },
+            "dependsOn": "Assignment7: Build Debug",
+            "problemMatcher": []
+        },
+        {
+            "label": "Assignment7: Configure Release",
+            "type": "process",
+            "command": "C:/msys64/ucrt64/bin/cmake.exe",
+            "args": ["--preset", "ucrt-release"],
+            "options": {
+                "cwd": "${workspaceFolder}/Assignment7/Assignment7_code",
+                "env": {"PATH": "C:/msys64/ucrt64/bin;${env:PATH}"}
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Assignment7: Build Release",
+            "type": "process",
+            "command": "C:/msys64/ucrt64/bin/cmake.exe",
+            "args": ["--build", "--preset", "ucrt-release"],
+            "options": {
+                "cwd": "${workspaceFolder}/Assignment7/Assignment7_code",
+                "env": {"PATH": "C:/msys64/ucrt64/bin;${env:PATH}"}
+            },
+            "dependsOn": "Assignment7: Configure Release",
+            "problemMatcher": ["$gcc"],
+            "group": "build"
+        },
+        {
+            "label": "Assignment7: Check environment Release",
+            "type": "process",
+            "command": "C:/msys64/ucrt64/bin/ctest.exe",
+            "args": ["--preset", "ucrt-release"],
+            "options": {
+                "cwd": "${workspaceFolder}/Assignment7/Assignment7_code",
+                "env": {"PATH": "C:/msys64/ucrt64/bin;${env:PATH}"}
+            },
+            "dependsOn": "Assignment7: Build Release",
+            "problemMatcher": []
+        },
+        {
             "label": "Assignment6: Configure",
             "type": "process",
             "command": "C:/msys64/ucrt64/bin/cmake.exe",
